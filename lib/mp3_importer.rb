@@ -9,11 +9,16 @@ class MP3Importer
   end
 
   def files
-      array = Dir.entries(path).map { |file| file if file.end_with?(".mp3")
     # binding.pry
-  }.compact
-
+    #   array = Dir.entries(path).map do  |file|
+    #     file if file.end_with?(".mp3")
+    #   end
+    # binding.pry
+  # }.compact
   # binding.pry
+    # binding.pry
+
+    Dir.glob("#{path}/*.mp3").map { |file| (file[/(?<=mp3s).*/])[1..file.length] }
   end
 
   def import
